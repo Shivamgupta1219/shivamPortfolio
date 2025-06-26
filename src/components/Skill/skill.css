@@ -1,0 +1,148 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.box {
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container_2 {
+  width: 50%;
+}
+
+.skill-sec {
+  background-color: #222;
+  color: aliceblue;
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  scroll-margin-top: 80px;
+
+}
+
+.heading {
+  color: rgb(245, 245, 245);
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.text {
+  padding: 0rem 1rem 1rem;
+  color: #777474;
+}
+
+.top-heading {
+  padding-bottom: 2rem;
+}
+
+/* Responsive for large */
+@media (min-width: 1024px) {
+  .top-heading {
+    font-size: 2.5rem;
+  }
+
+  .box {
+    padding: 2rem;
+  }
+}
+
+/* Responsive for small mobile */
+@media (max-width: 480px) {
+  .top-heading {
+    font-size: 1.5rem;
+  }
+
+  .box {
+    padding: 0.5rem;
+  }
+
+  .heading {
+    font-size: 1.3rem;
+  }
+
+  .text {
+    font-size: 0.95rem;
+  }
+
+  .container_2 {
+    width: 100%;
+  }
+}
+
+.bubble-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.bubble-icons span {
+  font-size: 2.5rem;
+  color: #00e5ff;
+}
+
+
+/* 
+.bubble-icons {
+  display: flex;
+  gap: 1rem;
+  overflow: hidden;
+  height: 0;
+  margin-top: 1px;
+  pointer-events: none;
+  transition: height 0.4s ease;
+  align-items: flex-end;
+}
+
+.box:hover .bubble-icons {
+  height: 3.5rem;
+  pointer-events: auto;
+}
+
+.bubble-icons span {
+  font-size: 2rem;
+  opacity: 0;
+  transform: translateY(100%) scale(0.5);
+}
+
+.box:hover .bubble-icons span {
+  opacity: 1;
+  animation: bounceInfinite 1.2s ease-in-out infinite;
+}
+
+.box:hover .bubble-icons span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.box:hover .bubble-icons span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.box:hover .bubble-icons span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+ */
+/* Keyframes for infinite bounce */
+@keyframes bounceInfinite {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+
+  }
+
+  50% {
+    transform: translateY(-15px) scale(1.1);
+  }
+}
+
+.bubble-icons span {
+  transition: all 0.3s ease;
+  text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);
+  color: #61dafb;
+  /* or any color you prefer */
+}
