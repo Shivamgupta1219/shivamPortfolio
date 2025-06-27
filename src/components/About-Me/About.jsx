@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence, scale } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import "./about.css";
 import profile_img from "/src/assets/shivamDP.jpg";
 
@@ -22,8 +22,10 @@ export default function About({ id }) {
     },
   };
   return (
-    <div id={id}>
-      <h1 className="title">About</h1>
+    <motion.div id={id}>
+      <motion.h1   
+      variants={fadeSlideVariants}
+       className="title">About</motion.h1>
       <motion.section
         variants={boxVariants}
         initial="hidden"
@@ -77,7 +79,6 @@ export default function About({ id }) {
           </AnimatePresence>
         </motion.div>
       </motion.section>
-      <hr />
-    </div>
+    </motion.div>
   );
 }

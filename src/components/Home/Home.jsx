@@ -13,7 +13,7 @@ function Home({ id }) {
       const id = setInterval(() => {
         setExplode(true);
         setTimeout(() => setExplode(false), 400);
-      }, 1000);
+      }, 2500);
       setIntervalId(id);
     }
   };
@@ -108,7 +108,6 @@ function Home({ id }) {
           </p>
         </div>
       </section>
-      <hr className="line" />
     </div>
   );
 }
