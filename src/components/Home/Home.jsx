@@ -1,180 +1,112 @@
-
 import React, { useState, useEffect } from "react";
 import "./home.css";
 import { motion } from "framer-motion";
 
 function Home({ id }) {
-  const boxVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.4,
-      },
-    },
-  };
-
-  const fadeSlideVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeInOut" },
-    },
-  };
-
   const [explode, setExplode] = useState(false);
+  const [intervalId, setIntervalId] = useState(null);
+  const [loopStarted, setLoopStarted] = useState(false);
+
+  const startExplosionLoop = () => {
+    if (!loopStarted) {
+      setLoopStarted(true);
+      const id = setInterval(() => {
+        setExplode(true);
+        setTimeout(() => setExplode(false), 400);
+      }, 1000);
+      setIntervalId(id);
+    }
+  };
 
   useEffect(() => {
-    if (explode) {
-      const timer = setTimeout(() => setExplode(false), 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [explode]);
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [intervalId]);
 
-  const getRandomExplosion = () => ({
-    x: Math.random() * 300 - 150,
-    y: Math.random() * 300 - 150,
-    rotate: Math.random() * 360,
-    opacity: 0.5,
-  });
+  const renderWord = (text) => {
+    return (
+      <motion.div className="exploding-word" onMouseEnter={startExplosionLoop}>
+        {Array.from(text).map((char, index) => {
+          const explosionStyle = explode
+            ? {
+                x: Math.random() * 500 - 100,
+                y: Math.random() * 200 - 100,
+                rotate: Math.random() * 360,
+                scale: 2,
+                opacity: 0.5,
+              }
+            : {
+                x: 0,
+                y: 0,
+                rotate: 0,
+                scale: 1,
+                opacity: 1,
+              };
+
+          return (
+            <motion.span
+              key={index}
+              animate={explosionStyle}
+              initial={false}
+              transition={{
+                type: "spring",
+                stiffness: 80,
+                damping: 12,
+                duration: 0.6,
+              }}
+            >
+              {char}
+            </motion.span>
+          );
+        })}
+      </motion.div>
+    );
+  };
 
   return (
     <div id={id}>
       <section className="Container">
-        <motion.div
-          className="box_1"
-          variants={boxVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <motion.div
-            className="exploding-word"
-            onMouseEnter={() => setExplode(true)}
-            onMouseLeave={() => setExplode(false)}
-          >
-            {Array.from("A").map((char, index) => (
-              <motion.span
-                key={index}
-                animate={
-                  explode
-                    ? getRandomExplosion()
-                    : { x: 0, y: 0, rotate: 2, opacity: 1 }
-                }
-                transition={{ type: "spring", stiffness: 100, damping: 12 }}
-                style={{
-                  fontSize: "7rem",
-                  fontWeight: "bold",
-                  display: "inline-block",
-                }}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </motion.div>
-
-          <motion.div
-            className="exploding-word"
-            onMouseEnter={() => setExplode(true)}
-            onMouseLeave={() => setExplode(false)}
-          >
-            {Array.from("MERN").map((char, index) => (
-              <motion.span
-                key={index}
-                animate={
-                  explode
-                    ? getRandomExplosion()
-                    : { x: 0, y: 0, rotate:1, opacity: 1 }
-                }
-                transition={{ type: "spring", stiffness: 100, damping: 12 }}
-                style={{
-                  fontSize: "7rem",
-                  fontWeight: "bold",
-                  display: "inline-block",
-                  color: "#514e4e",
-                }}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </motion.div>
-
-          <motion.div
-            className="exploding-word"
-            onMouseEnter={() => setExplode(true)}
-            onMouseLeave={() => setExplode(false)}
-          >
-            {Array.from("STACK").map((char, index) => (
-              <motion.span
-                key={index}
-                animate={
-                  explode
-                    ? getRandomExplosion()
-                    : { x: 0, y: 0, rotate: 0, opacity: 1 }
-                }
-                transition={{ type: "spring", stiffness: 100, damping: 12 }}
-                style={{
-                  fontSize: "7rem",
-                  fontWeight: "bold",
-                  display: "inline-block",
-                }}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </motion.div>
-          <motion.div
-            className="exploding-word"
-            onMouseEnter={() => setExplode(true)}
-            onMouseLeave={() => setExplode(false)}
-          >
-            {Array.from("DEVELOPER").map((char, index) => (
-              <motion.span
-                key={index}
-                animate={
-                  explode
-                    ? getRandomExplosion()
-                    : { x: 0, y: 0, rotate: 1, opacity: 1 }
-                }
-                transition={{ type: "spring", stiffness: 100, damping: 12 }}
-                style={{
-                  fontSize: "6rem",
-                  fontWeight: "bold",
-                  display: "inline-block",
-                  color: "#514e4e",
-                }}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        {/* Paragraph box_2 */}
-        <motion.div
-          className="box_2"
-          variants={boxVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <motion.p className="hello" variants={fadeSlideVariants}>
-            Hello
-          </motion.p>
-          <motion.p className="para_one" variants={fadeSlideVariants}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.. Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Quam molestias,
-            nihil ipsam et minus doloremque labore iusto eum? Vel earum et vero
-            veritatis itaque blanditiis repudiandae tempora aliquam repellat
-            qui. Optio molestias eos dolorem. .
-          </motion.p>
-          <motion.p className="para_two" variants={fadeSlideVariants}>
-            Laboriosam ipsa enim voluptatum minima aspernatur molestiae Lorem,
-            ipsum dolor sit amet consectetur adipisicing elit. Minima, itaque.
-            Sunt aperiam ipsum, quos autem eveniet reiciendis illum veniam?
-            Eaque eligendi eius officia.
-          </motion.p>
-        </motion.div>
+        <div className="box_1">
+          <div className="explosion">
+            {renderWord("A")}
+            {renderWord("MERN")}
+            {renderWord("STACK")}
+            {renderWord("DEVELOPER")}
+          </div>
+        </div>
+        <div className="box_2">
+          <p className="hello">Hello</p>
+          <p className="para_one">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam
+            molestias, nihil ipsam et minus doloremque labore iusto eum? Vel
+            earum et vero veritatis itaque blanditiis repudiandae tempora
+            aliquam repellat qui. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Voluptates asperiores accusamus reiciendis nobis
+            ducimus rem, non debitis optio iste, cupiditate facere nihil
+            expedita quasi. Ratione obcaecati natus, magni culpa eum accusantium
+            mollitia optio officia earum illum excepturi a veritatis nesciunt
+            voluptatibus quis explicabo exercitationem ut cupiditate rerum
+            repudiandae expedita quod quisquam, quibusdam sed. Necessitatibus
+            aliquam architecto incidunt neque quisquam animi et sunt sapiente
+            tempore! Delectus mollitia pariatur doloremque est repellat aperiam
+            omnis numquam quibusdam tempore amet aliquam velit nulla earum
+            deleniti qui, accusantium, exercitationem id repudiandae? Veritatis
+            repellendus soluta placeat adipisci doloribus sequi molestias
+            corrupti incidunt molestiae iste nostrum eveniet neque, aliquam
+            cupiditate a velit eligendi distinctio, eum maxime. Ad, ab nam,
+            similique amet rerum nihil, laborum odit quidem doloremque sapiente
+            itaque tenetur.
+          </p>
+          <p className="para_two">
+            Laboriosam ipsa enim voluptatum minima aspernatur molestiae. Minima,
+            itaque. Sunt aperiam ipsum, quos autem eveniet reiciendis illum
+            veniam? Eaque eligendi eius officia. Lorem, ipsum dolor sit amet
+            consectetur adipisicing elit. Deleniti ipsa pariatur fugit
+            consequatur culpa obcaecati inventore nihil omnis deserunt, quod
+            illum quos ipsam.
+          </p>
+        </div>
       </section>
       <hr className="line" />
     </div>

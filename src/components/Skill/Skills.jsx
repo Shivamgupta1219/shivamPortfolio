@@ -208,11 +208,12 @@ function Skills({ id }) {
       <motion.div variants={fadeSlideVariants} className="container_2">
         <h1 className="top-heading">KNOWLEDGE & SKILLS</h1>
 
-        <div className="box">
+        <div className="box"
+             onMouseEnter={() => setHoverSection("prog")}
+            onMouseLeave={() => setHoverSection(null)}>
           <p
             className="heading"
-            onMouseEnter={() => setHoverSection("prog")}
-            onMouseLeave={() => setHoverSection(null)}
+       
           >
             Programming Languages
           </p>
@@ -249,11 +250,11 @@ function Skills({ id }) {
           </div>
         </div>
 
-        <div className="box">
+        <div className="box"     onMouseEnter={() => setHoverSection("web")}
+            onMouseLeave={() => setHoverSection(null)}>
           <p
             className="heading"
-            onMouseEnter={() => setHoverSection("web")}
-            onMouseLeave={() => setHoverSection(null)}
+         
           >
             Web Development
           </p>
