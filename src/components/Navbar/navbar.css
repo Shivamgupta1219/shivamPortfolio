@@ -8,12 +8,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #222;
+  background-color: #181717;
   color: white;
   padding: 20px 25px;
   position: sticky;
   top: 0;
   z-index: 1000;
+  opacity: 0.9;
 }
 
 .navbar-logo {
