@@ -78,34 +78,19 @@ function Home({ id }) {
         <div className="box_2">
           <p className="hello">Hello</p>
           <p className="para_one">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam
-            molestias, nihil ipsam et minus doloremque labore iusto eum? Vel
-            earum et vero veritatis itaque blanditiis repudiandae tempora
-            aliquam repellat qui. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Voluptates asperiores accusamus reiciendis nobis
-            ducimus rem, non debitis optio iste, cupiditate facere nihil
-            expedita quasi. Ratione obcaecati natus, magni culpa eum accusantium
-            mollitia optio officia earum illum excepturi a veritatis nesciunt
-            voluptatibus quis explicabo exercitationem ut cupiditate rerum
-            repudiandae expedita quod quisquam, quibusdam sed. Necessitatibus
-            aliquam architecto incidunt neque quisquam animi et sunt sapiente
-            tempore! Delectus mollitia pariatur doloremque est repellat aperiam
-            omnis numquam quibusdam tempore amet aliquam velit nulla earum
-            deleniti qui, accusantium, exercitationem id repudiandae? Veritatis
-            repellendus soluta placeat adipisci doloribus sequi molestias
-            corrupti incidunt molestiae iste nostrum eveniet neque, aliquam
-            cupiditate a velit eligendi distinctio, eum maxime. Ad, ab nam,
-            similique amet rerum nihil, laborum odit quidem doloremque sapiente
-            itaque tenetur.
+            My name is Shivam Gupta. I am an aspiring Python Developer and Web
+            Developer based in India with additional experience in data analysis
+            and front-end design. As a Developer, I enjoy building responsive,
+            user-friendly web applications using technologies like React.js,
+            Tailwind CSS, and the MERN stack. I also have experience creating
+            real-world projects such as a Student Attendance Management System
+            using Python, Tkinter, SQLite, and Pandas. Alongside development, I
+            focus on improving my skills in modern UI design and data
+            visualization to present information clearly and effectively. I
+            believe in continuous learning and hands-on practice to grow my
+            technical and communication skills for a successful career in tech.
           </p>
-          <p className="para_two">
-            Laboriosam ipsa enim voluptatum minima aspernatur molestiae. Minima,
-            itaque. Sunt aperiam ipsum, quos autem eveniet reiciendis illum
-            veniam? Eaque eligendi eius officia. Lorem, ipsum dolor sit amet
-            consectetur adipisicing elit. Deleniti ipsa pariatur fugit
-            consequatur culpa obcaecati inventore nihil omnis deserunt, quod
-            illum quos ipsam.
-          </p>
+          <p className="para_two"></p>
         </div>
       </section>
     </div>

@@ -8,21 +8,20 @@ const projectData = [
     description:
       "A personal portfolio website built using React, showcasing my skills and projects.",
     tech: "React, CSS, JavaScript",
-    link: "https://your-portfolio-link.com",
+    // link: "",
   },
-  {
-    title: "Chatbot App",
-    description:
-      "An AI-powered chatbot built using Python and ChatterBot for conversation handling.",
-    tech: "Python, Tkinter, NLP",
-    link: "https://github.com/yourname/chatbot",
-  },
+  // {
+  //   title: "Chatbot App",
+  //   description:
+  //     "An AI-powered chatbot built using Python and ChatterBot for conversation handling.",
+  //   tech: "Python, Tkinter, NLP",
+  //   link: "https://github.com/yourname/chatbot",
+  // },
   {
     title: "E-commerce Backend",
-    description:
-      "A RESTful API backend for an e-commerce application using Node.js and MongoDB.",
+    description:"“A responsive MERN stack real estate app to browse, list, and manage properties with user authentication and modern UI design.”",
     tech: "Node.js, Express, MongoDB",
-    link: "https://github.com/yourname/ecommerce-backend",
+    link: "SOON",
   },
 ];
 
@@ -74,7 +73,8 @@ export default function Projects({ id }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              View Project
+              {/* View Project */}
+              SOON.....
             </a>
           </motion.div>
         ))}

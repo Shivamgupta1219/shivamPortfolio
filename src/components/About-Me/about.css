@@ -13,6 +13,9 @@
     color: white;
 
 }
+.About-text{
+    color: #6e7074;
+}
 
 .container {
     display: flex;
