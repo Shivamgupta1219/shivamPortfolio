@@ -78,7 +78,7 @@ function Home({ id }) {
         <div className="box_2">
           <p className="hello">Hello</p>
           <p className="para_one">
-            My name is Shivam Gupta. I am an aspiring Python Developer and Web
+            My name is Shivam Gupta. I am an aspiring Python Developer and Full stack Web
             Developer based in India with additional experience in data analysis
             and front-end design. As a Developer, I enjoy building responsive,
             user-friendly web applications using technologies like React.js,
