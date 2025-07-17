@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./navbar.css";
@@ -9,6 +8,14 @@ export default function Navbar() {
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   const navLinks = ["home", "about", "projects", "contact", "skill"];
+  const tagTitle = [
+    "Go to Shivam Gupta's homepage",
+    "Learn more about Shivam Gupta",
+    "See Shivam Gupta's frontend development projects",
+    "View or download Shivam Gupta's resume",
+    "Get in touch with Shivam Gupta",
+    "Technologies and tools Shivam Gupta is skilled in",
+  ];
 
   const menuDrop = {
     hidden: { opacity: 0 },
@@ -54,6 +61,7 @@ export default function Navbar() {
               padding: "5px",
             }}
             whileTap={{ scale: 0.95 }}
+            title={tagTitle[i]}
           >
             {item.charAt(0).toUpperCase() + item.slice(1)}
           </motion.a>
@@ -94,6 +102,7 @@ export default function Navbar() {
                 href={`#${item}`}
                 variants={menuItem}
                 onClick={() => setIsMenuOpen(false)}
+                title={tagTitle[i]}
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
               </motion.a>
